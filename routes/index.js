@@ -1,21 +1,15 @@
-// require('dotenv').config();
+require('dotenv').config();
 var express = require('express');
 var router = express.Router();
 var firebase = require('firebase');
 
 var config = {
-    // apiKey: "AIzaSyDo-YM_5VIqvaQp1jFGB0wFYDS1uAoJxjY",
-    // authDomain: process.env.authDomain,
-    // databaseURL: process.env.databaseURL,
-    // projectId: process.env.projectId,
-    // storageBucket: process.env.storageBucket,
-    // messagingSenderId: process.env.messagingSenderId
-    apiKey: "AIzaSyDo-YM_5VIqvaQp1jFGB0wFYDS1uAoJxjY",
-    authDomain: "hacktech-1.firebaseapp.com",
-    databaseURL: "https://hacktech-1.firebaseio.com",
-    projectId: "hacktech-1",
-    storageBucket: "hacktech-1.appspot.com",
-    messagingSenderId: "380132273581"
+    apiKey: process.env.apiKey,
+    authDomain: process.env.authDomain,
+    databaseURL: process.env.databaseURL,
+    projectId: process.env.projectId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId
   };
   firebase.initializeApp(config);
 
