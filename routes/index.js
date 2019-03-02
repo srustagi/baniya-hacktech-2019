@@ -12,6 +12,7 @@ var config = {
     messagingSenderId: process.env.messagingSenderId
   };
   firebase.initializeApp(config);
+  var db = firebase.firestore();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -41,9 +42,10 @@ router.post('/account-login', function(req, res, next) {
     var errorMessage = error.message;
     console.log(errorCode + " \n" + errorMessage);
     if(errorCode === "auth/user-not-found") {
-      console.log('redirected back to home');
-      return res.redirect('/');
+      console.log('redirected back to home brutha');
+      res.end();
     } else if (errorCode === "auth/wrong-password") {
+      console.log("redirecting back home nig")
       return res.redirect('/');
     }
  });
