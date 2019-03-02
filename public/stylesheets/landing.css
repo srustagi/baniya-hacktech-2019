@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto|Source+Code+Pro');
+
+*:focus {
+	outline: none;
+}
+
+#content {
+  position: relative;
+  z-index: 0;
+  display: flex;
+}
+
+#nav {
+	border-bottom: 1px solid grey;
+}
+
+#sidebar {
+	margin-top: 51px;
+	display: flex;
+	width: 300px;
+	flex-direction: column;
+	min-height: 100vh;
+	background: white;
+	border-right: 1px solid grey;
+    overflow-y: auto;
+}
+
+#sidebar nav{
+	position: fixed;
+	width: inherit;
+}
+
+#sidebar .sidebar-item {
+	display: block;
+}
+
+#sidebar a:link, #sidebar a:hover, #sidebar a:active, #sidebar a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+#main-content{
+	width: calc(100% - 300px);
+	display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10%;
+    color: white; 
+}
+
+#colored {
+	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	/*background: white;*/
+	background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5370, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5370, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+input {
+  text-align: center;
+  width: 100%;
+  padding: 10px 100px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+#login-headline {
+	letter-spacing: 3px;
+	font-size: 90px;
+	color: white;
+}
+
+#IDE-headline {
+	letter-spacing: 3px;
+	font-size: 70px;
+	color: white;
+}
+
+#forgotpassword {
+	margin-left: 36.5%;
+	text-decoration: underline;
+	color: #a0adc1;
+}
+
+#alreadyuser {
+	text-align: center;
+	color: white;
+	font-size: 10px;
+}
+
+#createdAcct {
+	font-size: 15px;
+	background: lightgray;
+	padding: 10px;
+	text-align: center;
+	margin-bottom: 10px;
+	border-radius: 2%;
+	font-family: 'Raleway', sans-serif;
+}
+
+.fa-check {
+	margin-right: 5px;
+	border: 2px solid black;
+	padding: 2px;
+	border-radius: 50%;
+}
+
+#nav {
+	background: white;
+}
+
+#nav li {
+	color: black;
+}
+
+#mission-statement {
+	margin-top: 10px;
+	font-size: 20px;
+	text-shadow: 2px 2px #000000;
+}
+
+#start-button {
+	margin-top: 30px;
+	color: white;
+}
+
+a:link, a:hover, a:visited, a:active {
+	text-decoration: none;
+	color: white;
+}
+
+.third {
+	width: 33.3%;
+	float: left;
+	text-align: center;
+}
+
+.box {
+	width: 100%;
+
+}
+
+.code {
+	border-radius: 2px;
+	border: 1px solid grey;
+	text-align: left;
+	padding: 10px;
+	background: #fff;
+	color: #2c3e50;
+	font-family: 'Source Code Bro', monospace;
+	margin-bottom: 20px;
+}
+
+.code .accent {
+	color: red;
+}
+
+.code .params {
+	color: orange;
+}
+
+#progress{
+	position: relative;
+	margin-top: 50px;
+}
+
+#git-progress {
+	position: relative;
+	padding:1.5rem;
+    box-shadow:0 1px 2px #aaa;
+    background: white;
+    margin:0 1rem 1rem;
+    border-radius:3px;
+    color: #2e3131;
+    font-size: 16px;
+}
+
+#unix-menu li, #git-menu li #development-menu li{
+	margin-left: 20px;
+}
+
+.sidebar-item{
+	width: 100%;
+	padding: 20px;
+	border-bottom: 1px solid grey;
+}
+
+hr {
+  width: 100%;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black; }

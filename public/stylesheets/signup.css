@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+#content {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%; }
+
+body {
+	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5370, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5370, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+input {
+  text-align: center;
+  width: 100%;
+  padding: 10px 100px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+input:focus {
+	outline: none;
+}
+
+button {
+	transition-duration: .5s;*/
+	font-family: 'Raleway', sans-serif;
+	padding: 12px;
+	background: #2c3e50;
+	border: 1px solid white;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	transition-duration: .5s;
+	margin-top: 16px;
+	width: 100%;
+}
+
+button:hover {
+	transition-duration: .5s;
+	background: lightgray;
+	color: black;
+/*	background-color: #43C6AC;
+	font-size: 40px;
+	transition-duration: .5s;*/
+}
+
+#login-headline {
+	letter-spacing: 3px;
+	font-size: 50px;
+	font-weight: 1;
+	color: white;
+}
+
+#forgotpassword {
+	margin-left: 36.5%;
+	text-decoration: underline;
+	color: #a0adc1;
+}
+
+#alreadyuser {
+	text-align: center;
+	color: white;
+	font-size: 10px;
+}
+
+#createdAcct {
+	font-size: 15px;
+	background: lightgray;
+	padding: 10px;
+	text-align: center;
+	margin-bottom: 10px;
+	border-radius: 2%;
+	font-family: 'Raleway', sans-serif;
+}
+
+.fa-check {
+	margin-right: 5px;
+	border: 2px solid black;
+	padding: 2px;
+	border-radius: 50%;
+}

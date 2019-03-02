@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Landing page</title>
+	<link rel='stylesheet' href='../stylesheets/landing.css'/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body id="colored">
+	<nav class="navbar navbar-default navbar-fixed-top" id="nav">
+		<div class="container">
+			<div class="navbar-header">
+				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+	        		<span class="sr-only">Toggle navigation</span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	      		</button>
+
+				<a class="navbar-brand">Devstrap</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/users/<%= user.uid %>">Home</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+						<li><a href="/users/<%= user.uid %>"><%= user.displayName.substr(0,user.displayName.indexOf(' ')) %></a></li>
+				    	<li><a href="/signout">Sign Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+			
+	<div id="content">
+		<div id="sidebar">
+			<nav>
+		        <ul class="list-unstyled">
+		            <li class="sidebar-item">
+		                <a href="#unix-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-terminal"></i>&nbsp;&nbsp;&nbsp;Unix</a>
+		                <ul class="collapse list-unstyled" id="unix-menu">
+		                    <li>
+		                        <a href="/users/unix#unix-I">Navigating Using Command Line</a>
+		                    </li>
+		                    <li>
+		                        <a href="/users/unix#unix-II">Modifying Files and File Structure</a>
+		                    </li>
+		                </ul>
+		            </li>
+		            <li class="sidebar-item">
+		                <a href="#git-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fab fa-github"></i>&nbsp;&nbsp;&nbsp;Git</a>
+		                <ul class="collapse list-unstyled" id="git-menu">
+		                    <li>
+		                        <a href="/users/git#git-I">Git Initialization Basics</a>
+		                    </li>
+		                    <li>
+		                        <a href="/users/git#git-II">Git Snapshots</a>
+		                    </li>
+		                    <li>
+		                        <a href="/users/git#git-III">Branching and Merging</a>
+		                    </li>
+		                </ul>
+		            </li>
+		            <li class="sidebar-item">
+		            	<a href="#development-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-laptop"></i>&nbsp;&nbsp;&nbsp;Development Environments</a>
+		            	<ul class="collapse list-unstyled" id="development-menu">
+		            		<li>
+		            			<a href="/users/dev#dev-I">Introduction</a>
+		            		</li>
+		            		<li>
+		            			<a href="/users/dev#dev-II">Text Editors</a>
+		            		</li>
+		            		<li>
+		            			<a href="/users/dev#dev-III">IDEs</a>
+		            		</li>
+		            	</ul>
+		            </li>
+		        </ul>
+			</nav>
+		</div>
+		<div id="main-content">
+			<div>
+				<h1 id="login-headline">Git</h1>
+			</div>
+			<div id="progress" class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div id="git-progress">
+							<p><i>Note: The code for the Git commands is provided in the outlined boxes. The</i> $ <i>is a part of the command prompt. The code is the text following the </i>$</p>
+							<p><i>Code inside of these brackets: </i> [ ] <i>is to be replaced by your respective file names</i></p>
+							<h1 id="git-I">I. Git Initialization Basics</h1>
+							<h3>Creating and initializing projects with Git:</h3>
+							<p>The first command we'll talk about is init. This will initialize a Git repository on your local machine.</p>
+							<div class="code">
+								$ git init
+							</div>
+							<p>Often times, we want to download a copy of an exisiting repository directly from the github website. We can do this using the clone command</p>
+
+							<p>Using the command line, we can navigate to a location where we would like to download a copy of the github repo. We can then clone the repository and optionaly give the folder a different name</p>
+							<div class="code">
+								$ git clone [link to github repo] (optional: new name)
+								<br>
+								ex: $ git clone ssh://git@github.com/[username]/[repository-name].git
+							</div>
+
+							<h1 id="git-II">II. Git Snapshots</h1>
+							<h3>Modifying Files</h3>
+							<p>Git can be confusing, especially for beginners. Since there are many things to keep track of when using Git, especially when pushing to a repository, the status command often helps avoid tedious situations</p>
+
+							<p>status returns a full breakdown of the current snapshot that Git is at in the project. This includes files that were modified and must be committed (updated), and branches that are ahead of or behind master</p>
+							<div class="code">
+								$ git status
+							</div>
+
+							<p>When we want to add, or modify a file in the Git repository, we use the add command</p>
+
+							<div class="code">
+								$ git add
+							</div>
+
+							<p>Additionally, if we want to add all new and modified files, then we use the following command</p>
+
+							<div class="code">
+								$ git add -A
+							</div>
+
+							<p>After we have added the files to be pushed to the repository, Git requires that we add a brief message describing the files being added or modified. We can do this by performing the following command</p>
+
+							<div class="code">
+								$ git commit -m "[MESSAGE TO COMMIT]"
+							</div>
+
+							<p>If there is a file that is added by accident or needs to be removed from the repository, we can use the Git command rm. The command is implemented as follows</p>
+
+							<div class="code">
+								$ git rm -r [FILE-TO-BE-REMOVED.txt]
+							</div>
+
+							<p>Git provides many commands which can help you easily keep track of changes in your files in the case that you need to revert back to an older version of your code or wish to update the new added features that you have implemented</p>
+
+							<h1 id="git-III">III. Branching and Merging</h1>
+
+							<p>In Git, the main code for repositories resides in the master branch</p>
+
+							<p>When working with multiple people in a single Git repository, having everybody commit their changes to the master branch might not be the best decision</p>
+
+							<p>This can be for many reasons. Often times, merge errors can occur, and code can easily be overwriten and lost.</p>
+
+							<p>For this reason, branches exist in Git as a way for every member of a repository to have their own personal workspace per say.</p>
+
+							<p>In the initial state, everybody has identical, seperate versions of the master branch. From there, people who are working on different tasks or even the same task can commit their changes to only their branch. These commits are independent of master and thus do not affect the production code. The code to see which branches have been created is as follows</p>
+
+							<div class="code">
+								$ git branch 
+							</div>
+
+							<p>Additionaly, if we want to list all branches, all it takes is a simple modification on the previous command as follows</p>
+
+							<div class="code">
+								$ git branch -a
+							</div>
+
+							<p>We can create a new branch in the repository as follows</p>
+
+							<div class="code">
+								$ git branch [branch-name]
+							</div>
+
+							<p>To delete a branch, insert -d before the branch name</p>
+
+							<p>When code has been inspected and approved to be added to the master branch, we can use the merge functionality provide by Git. The following code merges the specified branch to the branch that you are currently on</p>
+
+							<div class="code">
+								$ git merge [branch-to-be-merged]
+								<br>
+								$ git merge [source branch] [target branch]
+							</div>
+
+							<h1 id="git-IV">IV. Sharing and Updating Projects</h1>
+							<p>To update changes on the github respository online, use the push command prvided by Git as follows</p>
+
+							<div class="code">
+								$ git push
+							</div>
+
+							<p>If another member of your repository pushes changed to a branch or to the master branch which you require or wish to have for your project, you can use the pull command provided by git to update your code on your system with the changes made by the latest commit</p>
+
+							<div class="code">
+								$ git pull
+							</div>
+
+							<p>In order to view all the recent changes made to the repository, we can use the log command provided by Git</p>
+
+							<div class="code">
+								$ git log
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+	</div>
+	<!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>	
+
+</body>
+</html>

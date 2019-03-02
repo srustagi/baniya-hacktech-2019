@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Landing page</title>
+	<link rel='stylesheet' href='../stylesheets/landing.css'/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body id="colored">
+	<nav class="navbar navbar-default navbar-fixed-top" id="nav">
+		<div class="container">
+			<div class="navbar-header">
+				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+	        		<span class="sr-only">Toggle navigation</span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	      		</button>
+
+				<a class="navbar-brand">Devstrap</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/users/<%= user.uid %>">Home</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+						<li><a href="/users/<%= user.uid %>"><%= user.displayName.substr(0,user.displayName.indexOf(' ')) %></a></li>
+				    	<li><a href="/signout">Sign Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+			
+	<div id="content">
+		<div id="sidebar">
+			<nav>
+		        <ul class="list-unstyled">
+		            <li class="sidebar-item">
+		                <a href="#unix-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-terminal"></i>&nbsp;&nbsp;&nbsp;Unix</a>
+		                <ul class="collapse list-unstyled" id="unix-menu">
+		                    <li>
+		                        <a href="/users/unix#unix-I">Navigating Using Command Line</a>
+		                    </li>
+		                    <li>
+		                        <a href="/users/unix#unix-II">Modifying Files and File Structure</a>
+		                    </li>
+		                </ul>
+		            </li>
+		            <li class="sidebar-item">
+		                <a href="#git-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fab fa-github"></i>&nbsp;&nbsp;&nbsp;Git</a>
+		                <ul class="collapse list-unstyled" id="git-menu">
+		                    <li>
+		                        <a href="/users/git#git-I">Git Initialization Basics</a>
+		                    </li>
+		                    <li>
+		                        <a href="/users/git#git-II">Git Snapshots</a>
+		                    </li>
+		                    <li>
+		                        <a href="/users/git#git-III">Branching and Merging</a>
+		                    </li>
+		                </ul>
+		            </li>
+		            <li class="sidebar-item">
+		            	<a href="#development-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-laptop"></i>&nbsp;&nbsp;&nbsp;Development Environments</a>
+		            	<ul class="collapse list-unstyled" id="development-menu">
+		            		<li>
+		            			<a href="/users/dev#dev-I">Introduction</a>
+		            		</li>
+		            		<li>
+		            			<a href="/users/dev#dev-II">Text Editors</a>
+		            		</li>
+		            		<li>
+		            			<a href="/users/dev#dev-III">IDEs</a>
+		            		</li>
+		            	</ul>
+		            </li>
+		        </ul>
+			</nav>
+		</div>
+		<div id="main-content">
+			<div>
+				<h1 id="login-headline">Unix/Command Line</h1>
+			</div>
+			<div id="progress" class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div id="git-progress">
+							<p><i>Note: The code for the commands is provided in the outlined boxes. The</i> $ <i>is a part of the command prompt. The code is the text following the </i>$</p>
+							<p><i>Code inside of these brackets: </i> [ ] <i>is to be replaced by your respective file names</i></p>
+							<h1 id="unix-I">Unix Basics</h1>
+							<h3>Command Line Arguments</h3>
+							<p>To list the files in the current directory use the following command</p>
+							<div class="code">
+								$ ls
+							</div>
+
+							<p>We can simply change the directory we are in by using the following command</p>
+							<div class="code">
+								$ cd
+							</div>
+
+							<h1 id="unix-II">Modifying Files and File Structure through CLI</h1>
+
+							<p>If we want to move a file to another directory, we can use the following command line argument</p>
+							<div class="code">
+								$ mv
+							</div>
+
+							<p>To create a new folder for a project, use the following command line argument</p>
+							<div class="code">
+								$ mkdir [name]
+							</div>
+							<p>To remove a directory use the following</p>
+							<div class="code">
+								$ rmdir [name]
+							</div>
+							<p>To create a new file in the current directory use the following command</p>
+							<div class="code">
+								$ touch [file.txt]
+							</div>
+							<p>To remove a certain file from the current directory use the following command</p>
+							<div class="code">
+								$ rm [file.txt]
+							</div>
+							<p>If you want to have a clear view of the terminal and not see the previous commands entered, you can use the following command to clear the terminal window</p>
+							<div class="code">
+								$ clear
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+	</div>
+	<!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>	
+
+</body>
+</html>
