@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 var firebase = require('firebase');
 require("firebase/firestore");
-var url = require('url'); 
+var request = require('request'); 
 
 var config = {
 	apiKey: process.env.apiKey,
@@ -110,7 +110,17 @@ router.post('/upload', function(req, res, next) {
 		console.log(currentUser.email);
 		res.redirect('/users/' + currentUser.uid);
 	} else {
-		res.render('disp', {text: text});
+		var safe = encodeURIComponent(text);
+		console.log(safe);
+		var result;
+		request.post({
+		  headers: {'content-type' : 'application/json'},
+		  url:     'http://10.10.34.167:5000/video_summary',
+		  body:    {"url": safe}
+		}, function(error, response, body){
+			result = body;
+		});
+		res.render('disp', {text: result});
 	}
 })
 
