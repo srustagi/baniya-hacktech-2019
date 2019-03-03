@@ -31,63 +31,20 @@
 		</div>
 	</nav>
 			
-	<div id="content">
-		<div id="sidebar">
-			<nav>
-		        <ul class="list-unstyled">
-		            <li class="sidebar-item">
-		                <a href="#unix-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-terminal"></i>&nbsp;&nbsp;&nbsp;Unix</a>
-		                <ul class="collapse list-unstyled" id="unix-menu">
-		                    <li>
-		                        <a href="/users/unix#unix-I">Navigating Using Command Line</a>
-		                    </li>
-		                    <li>
-		                        <a href="/users/unix#unix-II">Modifying Files and File Structure</a>
-		                    </li>
-		                </ul>
-		            </li>
-		            <li class="sidebar-item">
-		                <a href="#git-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fab fa-github"></i>&nbsp;&nbsp;&nbsp;Git</a>
-		                <ul class="collapse list-unstyled" id="git-menu">
-		                    <li>
-		                        <a href="/users/git#git-I">Git Initialization Basics</a>
-		                    </li>
-		                    <li>
-		                        <a href="/users/git#git-II">Git Snapshots</a>
-		                    </li>
-		                    <li>
-		                        <a href="/users/git#git-III">Branching and Merging</a>
-		                    </li>
-		                </ul>
-		            </li>
-		            <li class="sidebar-item">
-		            	<a href="#development-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-laptop"></i>&nbsp;&nbsp;&nbsp;Development Environments</a>
-		            	<ul class="collapse list-unstyled" id="development-menu">
-		            		<li>
-		            			<a href="/users/dev#dev-I">Introduction</a>
-		            		</li>
-		            		<li>
-		            			<a href="/users/dev#dev-II">Text Editors</a>
-		            		</li>
-		            		<li>
-		            			<a href="/users/dev#dev-III">IDEs</a>
-		            		</li>
-		            	</ul>
-		            </li>
-		        </ul>
-			</nav>
-		</div>
 		<div id="main-content">
 			<div>
-				<h1 id="login-headline">Welcome, <%= user.displayName %>!</h1>
+				<center><h1 id="login-headline">Welcome, <%= user.displayName.substr(0, user.displayName.indexOf(' ')) %>!</h1></center>
+				<form method="post" action="/upload">
+					<div>
+						<center><input type="search" placeholder="Enter link here" onfocus="this.placeholder=''" onblur="this.placeholder='Enter link here'" name="text" id="logged-in-input"></center>
+					</div>
+					<div>
+						<center><button type="submit" id="logged-in-query">submit</button></center>
+					</div>
+				</form>
 			</div>
-			<div id="progress" class="container">
-				<div class="row">
-					<center><img src="../images/logo.png" width="500" height="500" /></center>	
-				</div>
-			</div>
+			
 		</div>
-	</div>
 	<!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->

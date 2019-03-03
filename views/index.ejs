@@ -1,33 +1,10 @@
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <title>DevStrap</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div id="content">
-            <input type="text" name="link">
-            <input type="submit" name="">
-            <div>
-              <a href="/login"><button id="btn1">Login</button></a>
-              <a href="/signup"><button id="btn2">Signup</button></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </body>
-</html> -->
 <!DOCTYPE html>
 <html>
 <head>
   <title></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js"></script>
+  
 </head>
 <body>
 
@@ -48,17 +25,32 @@
   </header>
 
   <div class="cover">
-    <h1>Full video summaries quickly.</h1>
-    <form class="flex-form">
+    <div>
+      <form class="flex-form move-up" method="post" action="/upload">
       <label for="from">
         <i class="ion-location"></i>
       </label>
-      <input type="search" placeholder="Paste video link here">
+      <input type="search" placeholder="Paste video link here" id="url-search" name="text">
       <input type="submit" value="Summarize">
     </form>
+    </div>  
+    <div class="move-up2">
+      <center><h1 id="mission-statement">Full video summaries quickly.</h1></center>
+    </div>
   </div>
-
 </div>
+
+
+<script type="text/javascript">
+    function genPDF() {
+      link = document.getElementById('url-search')
+      // var doc = new jsPDF()
+      // doc.text(link.value, 10, 10)
+      // console.log("doc: " + doc.output())
+      // doc.save('test.pdf')
+      console.log('created')
+    }
+  </script>
 
 </body>
 </html>

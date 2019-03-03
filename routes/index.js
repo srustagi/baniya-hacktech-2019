@@ -2,7 +2,8 @@ require('dotenv').config();
 var express = require('express');
 var router = express.Router();
 var firebase = require('firebase');
-var url = require('url');    
+require("firebase/firestore");
+var url = require('url'); 
 
 var config = {
 	apiKey: process.env.apiKey,
@@ -13,6 +14,7 @@ var config = {
 	messagingSenderId: process.env.messagingSenderId
 };
 firebase.initializeApp(config);
+var db = firebase.firestore();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -42,7 +44,14 @@ router.post('/signup', function(req, res, next) {
 		user.user.updateProfile({displayName: firstname + " " + lastname});
 	}).catch(function(error) {
 	  console.log(error);
+	  res.redirect('/signup', {error: true})
 	});
+	db.collection("users").add({
+	    first: firstname,
+	    last: lastname,
+	    email: email,
+	    uploads: {}
+	})
 	res.redirect(url.format({
 		pathname:"/login",
 		query: {
@@ -58,18 +67,52 @@ router.post('/login', function(req, res, next) {
 		email = req.body.email;
 		pass = req.body.password;
 		firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
-		  var errorCode = error.code;
-		  var errorMessage = error.message;
-		  res.send(errorCode + " \n" + errorMessage);
+			if(error) {
+				var errorCode = error.code;
+		  		var errorMessage = error.message;
+		  		console.log(errorMessage);
+			} else {
+				var user = firebase.auth().currentUser;
+				if(user) {
+					res.redirect("/users/" + user.uid);
+				} else {
+					res.redirect("/login");
+				}
+			}
+		  // res.send(errorCode + " \n" + errorMessage);
 		});
-		var user = firebase.auth().currentUser;
-		if(user) {
-			res.redirect("/users/" + user.uid);
-		} else {
-			res.redirect("/login");
-		}
 	}
 });
+
+router.post('/upload', function(req, res, next) {
+	var text = req.body.text;
+	currentUser = firebase.auth().currentUser;
+	if(currentUser != null) {
+		var col = db.collection("users");
+		var docs = col.get().then(snapshot => {
+			snapshot.forEach(doc => {
+				console.log(doc.id, '=>', doc.data());
+				if(doc.data().email == currentUser.email) {
+					const userRef = db.collection("users").doc(doc.id);
+					entries = doc.data().uploads;
+					video_title = "yes beta";
+					vid_id = [video_title, text];
+					name = {
+						video_id: vid_id
+					}
+					entries.push(name);
+					db.collection("users").doc(doc.id).update({uploads: entries});
+				}
+			})
+		}).catch(err => {
+			console.log("error", err);
+		})
+		console.log(currentUser.email);
+		res.redirect('/users/' + currentUser.uid);
+	} else {
+		res.render('disp', {text: text});
+	}
+})
 
 router.get('/signout', function(req, res, next) {
 	firebase.auth().signOut().then(function() {

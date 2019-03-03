@@ -14,17 +14,6 @@
 	border-bottom: 1px solid grey;
 }
 
-#sidebar {
-	margin-top: 51px;
-	display: flex;
-	width: 300px;
-	flex-direction: column;
-	min-height: 100vh;
-	background: white;
-	border-right: 1px solid grey;
-    overflow-y: auto;
-}
-
 #sidebar nav{
 	position: fixed;
 	width: inherit;
@@ -40,12 +29,8 @@
 }
 
 #main-content{
-	width: calc(100% - 300px);
-	display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    padding-top: 10%;
+    padding-top: 5%;
     color: white; 
 }
 
@@ -59,7 +44,7 @@ background: linear-gradient(to right, #2C5370, #203A43, #0F2027); /* W3C, IE 10+
 
 input {
   text-align: center;
-  width: 100%;
+  width: 50%;
   padding: 10px 100px;
   margin: 5px 0;
   box-sizing: border-box;
@@ -71,8 +56,9 @@ input:focus {
 
 #login-headline {
 	letter-spacing: 3px;
-	font-size: 90px;
+	font-size: 60px;
 	color: white;
+	text-align: center;
 }
 
 #IDE-headline {
@@ -194,3 +180,35 @@ hr {
   width: 100%;
   border-top: 4px solid black;
   border-bottom: 4px solid black; }
+
+button {
+	transition-duration: .5s;*/
+	font-family: 'Raleway', sans-serif;
+	padding: 12px;
+	background: #2c3e50;
+	border: 1px solid white;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	transition-duration: .5s;
+	margin-top: 30px;
+}
+
+#logged-in-query:hover {
+	transition-duration: .5s;
+	background: lightgray;
+	color: black;
+	width: 25%;
+/*	background-color: #43C6AC;
+	font-size: 40px;
+	transition-duration: .5s;*/
+}
+
+#logged-in-query {
+	margin-top: 5px;
+	width: 50%;
+}
+
+#logged-in-input {
+	color: black;
+}
